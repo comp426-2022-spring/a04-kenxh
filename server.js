@@ -65,10 +65,10 @@ app.use((req, res, next) => {
     next()
 })
 
-if (log) {
+//if (log) {
     const accessLog = fs.createWriteStream('access.log', { flags: 'a' });
     app.use(morgan('combined', { stream: accessLog }));
-}
+//}
 
 if (debug) {
     app.get('/app/log/access', (req, res) => {
