@@ -65,10 +65,10 @@ app.use((req, res, next) => {
     next()
 })
 
-//if (log == true) { -> Don't know why but autograder doesn't like this
+if (log == true) { 
     const accessLog = fs.createWriteStream('access.log', { flags: 'a' });
     app.use(morgan('combined', { stream: accessLog }));
-//}
+}
 
 if (debug) {
     app.get('/app/log/access', (req, res) => {
